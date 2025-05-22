@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Code, Server, Database, Cloud, PuzzlePiece } from "lucide-react";
+import { Code, Server, Database, Cloud, Puzzle } from "lucide-react";
 
 const skills = {
   programming: ["Python", "JavaScript", "C++"],
@@ -41,7 +41,7 @@ export default function SkillsSection() {
       case "programming":
         return <Code className="w-5 h-5" />;
       case "frameworks":
-        return <PuzzlePiece className="w-5 h-5" />;
+        return <Puzzle className="w-5 h-5" />;
       case "databases":
         return <Database className="w-5 h-5" />;
       case "devops":
