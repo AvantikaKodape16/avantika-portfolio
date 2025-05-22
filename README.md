@@ -1,1 +1,1 @@
-LIVE : https://avantika-portfolio.lovable.app/
+LIVE : https://avantikakodape.netlify.app/
