@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Github, ExternalLink, Code, FileText } from "lucide-react";
+import { Github, ExternalLink, Code, FileText, Mic, Book, ArrowRight } from "lucide-react";
 
 interface Project {
   id: number;
@@ -8,7 +8,8 @@ interface Project {
   description: string;
   techStack: string[];
   github: string;
-  image?: string;
+  liveUrl?: string;
+  icon: React.ReactNode;
 }
 
 const projects: Project[] = [
@@ -18,6 +19,7 @@ const projects: Project[] = [
     description: "A secure authentication API built with Django REST Framework, featuring JWT authentication, password reset, and user management.",
     techStack: ["Django", "Django REST Framework", "JWT", "PostgreSQL"],
     github: "https://github.com/AvantikaKodape16/login-api",
+    icon: <Code className="w-16 h-16 text-foreground/50" />
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ const projects: Project[] = [
     description: "A network-based chat application implementing both TCP and UDP protocols for real-time communication between clients.",
     techStack: ["Socket Programming", "Python", "Concurrency"],
     github: "https://github.com/AvantikaKodape16/tcp-udp-chatbot",
+    icon: <ArrowRight className="w-16 h-16 text-foreground/50" />
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const projects: Project[] = [
     description: "An NLP application that condenses long texts into concise summaries while preserving key information and context.",
     techStack: ["Python", "NLTK", "Transformers", "Flask"],
     github: "https://github.com/AvantikaKodape16/text-summarization",
+    icon: <Book className="w-16 h-16 text-foreground/50" />
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ const projects: Project[] = [
     description: "A machine learning model to predict endangered species extinction risk based on environmental and biological factors.",
     techStack: ["Python", "Scikit-learn", "Pandas", "Data Visualization"],
     github: "https://github.com/AvantikaKodape16/species-extinction-prediction",
+    icon: <ArrowRight className="w-16 h-16 text-foreground/50" />
   },
   {
     id: 5,
@@ -46,6 +51,8 @@ const projects: Project[] = [
     description: "A podcast platform allowing users to discover, stream, and share podcast episodes with social features and personalized recommendations.",
     techStack: ["React", "Node.js", "MongoDB", "Express", "AWS S3"],
     github: "https://github.com/AvantikaKodape16/podtalk",
+    liveUrl: "https://podtalk-web.netlify.app/",
+    icon: <Mic className="w-16 h-16 text-foreground/50" />
   },
 ];
 
@@ -73,11 +80,11 @@ export default function ProjectsSection() {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <div className="h-48 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center">
-                <FileText 
-                  className={`w-16 h-16 text-foreground/50 transition-all duration-300 ${
-                    hoveredProject === project.id ? "scale-110" : ""
-                  }`} 
-                />
+                <div className={`transition-all duration-300 ${
+                  hoveredProject === project.id ? "scale-110" : ""
+                }`}>
+                  {project.icon}
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
@@ -102,15 +109,17 @@ export default function ProjectsSection() {
                     <span className="text-sm">Source Code</span>
                   </a>
                   
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-foreground/70 hover:text-foreground transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">View Project</span>
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-foreground/70 hover:text-foreground transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span className="text-sm">View Project</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

@@ -42,7 +42,7 @@ export default function Navbar() {
               duration={500}
               className="text-xl font-bold gradient-heading cursor-pointer"
             >
-              Avantika<span className="hidden sm:inline">.dev</span>
+              AK
             </Link>
           </div>
 

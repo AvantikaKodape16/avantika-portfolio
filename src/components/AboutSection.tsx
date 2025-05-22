@@ -34,7 +34,7 @@ export default function AboutSection() {
               <div className="timeline-item">
                 <div className="flex items-center gap-2 text-primary font-medium">
                   <GraduationCap className="w-5 h-5" />
-                  <span>2020 - 2024</span>
+                  <span>2021 - 2024</span>
                 </div>
                 <h4 className="text-lg font-semibold mt-2">B.Tech in Computer Science and Engineering</h4>
                 <p className="text-foreground/70">IIIT Nagpur</p>
